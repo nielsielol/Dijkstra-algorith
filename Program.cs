@@ -34,14 +34,11 @@ namespace Dijkstra_algorithm
                         foreach (Point point in program._pointers) {
                             if (point.Equals(linker.PointerTo)) {
                                 Console.Write("we are setting a new pointerVortex: " + point.Name + "the old Vortex = " + point.Vortex);
-                                //Console.WriteLine("we are adding pointer: " + point.Name);
 
                                 point.Vortex = theChosenOne.Vortex + linker.Distance; // set the new vortex!
                                 Console.WriteLine(" the new vortex = " + point.Vortex + " ( " + theChosenOne.Vortex + " + " + linker.Distance + " ) ");
                                 //set a new path witch belongs to the selected path
-                                point.path = theChosenOne.path; // set the new shorter path
-                                //Console.Write("updated point.path: " + point.getPath());
-                                
+                                point.path = theChosenOne.path; // set the new shorter path                                
                                 point.path += point.Name; // add itself to the end :)
                                 Console.WriteLine("point.pathh: " + point.path);
                                 if (point.IsEnd) {
@@ -60,7 +57,7 @@ namespace Dijkstra_algorithm
                     foreach (Point pointer in program._pointers)
                     {
                         if (!program._visited.Contains(pointer))
-                        {// hij mag niet al gevisit zijn (dit betekend dat we hem al gehad hebben
+                        {
                             if (theChosenOne == null)
                             {
                                 Console.WriteLine("the chosen one is null so the first occurrence is: " + pointer.Name + " " + pointer.Vortex);
@@ -78,8 +75,6 @@ namespace Dijkstra_algorithm
                     Console.WriteLine();
                     program._visited.Add(theChosenOne);
                 }
-                
-                
             }
 
             foreach (Point pointer in program._pointers) {
@@ -87,8 +82,6 @@ namespace Dijkstra_algorithm
                     Console.WriteLine(pointer.path);
             }
             
-
-            //Console.WriteLine("can we reach it? " + program._pointers[0].Name);
             Console.ReadLine();
         }
 
@@ -100,9 +93,7 @@ namespace Dijkstra_algorithm
             _pointers.Add(new Point('E'));//4
             _pointers.Add(new Point('F', true));//5
             _pointers.Add(new Point('G'));//6
-
             
-
             //set all the linkers!
             //A
             List<Linker> linker = new List<Linker>();
